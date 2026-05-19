@@ -1,4 +1,8 @@
-let file = "~/.ocaml-tasks"
+let file = 
+  match Sys.getenv_opt "HOME" with
+  | Some home -> home ^ "/.ocaml-tasks"
+  | None -> ".ocaml-tasks"
+
 let version = "0.0.1"
 
 let create_file () =
